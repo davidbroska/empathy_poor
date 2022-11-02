@@ -1,0 +1,26 @@
+\pagenumbering{gobble}
+\begin{centering}
+\textbf{ \University } \\
+\Large \Department \\
+\vfill
+\LARGE \textbf{ \Title } \\
+\LARGE \textbf{ \Subtitle } \\
+\vfill
+% \LARGE MSc Dissertation (abbreviated)\\
+% submitted as writing sample for \\
+% Sociology (PhD) at Penn State
+\vfill
+\begin{small}
+\begin{doublespace}
+	\begin{tabbing}
+%	Supervisor: \Supervisor  \\
+  Prepared by: David Broska \\
+	Date: \Date \\
+%	Grade received: Distinction (70) \\
+	\end{tabbing}
+\end{doublespace}
+\end{small}
+\end{centering}
+\vspace{-1cm}
+\newpage
+\pagenumbering{roman}

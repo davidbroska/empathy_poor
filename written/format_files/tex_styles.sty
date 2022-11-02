@@ -1,0 +1,38 @@
+% latex packages
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{dcolumn}
+
+% commands for document metadata
+\newcommand{\University}{Stanford University}
+\newcommand{\Department}{Department of Sociology}
+\newcommand{\StudyProgramme}{Ph.D. in Sociology}
+\newcommand{\Class}{MY499}
+\newcommand{\SeminarGroup}{Group 1}
+\newcommand{\AssignmentName}{Dissertation}
+\newcommand{\Title}{Report for MTurk Pilot:}
+\newcommand{\Subtitle}{study version 2022/08/02}
+
+
+\setlength{\abovedisplayskip}{-15pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\newcommand{\Name}{David Sebastian Broska}
+\newcommand{\Date}{October 30, 2022}
+\newcommand{\MatriculationNumber}{201954239}
+\newcommand{\WordCount}{9744}
+\newcommand{\CandidateNumber}{37392}
+\newcommand{\Place}{London}
+\newcommand{\Semester}{Spring 20xx}
+\newcommand{\Supervisor}{Prof. Dr. Jouni Kuha}
+
+% let figures and tables be placed exactly where they are created in the rmarkdown document
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}

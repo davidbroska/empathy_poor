@@ -1,0 +1,13 @@
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+\vspace{2cm}
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\newpage
+
+
+\newpage

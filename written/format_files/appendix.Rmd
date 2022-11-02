@@ -1,0 +1,25 @@
+\newpage
+\pagenumbering{gobble}
+\phantomsection
+\addcontentsline{toc}{section}{Appendix}
+
+\Large \textbf{Appendix: Example exhibition descriptions} \newline
+\small
+
+
+\textbf{Title:} Josef Žácek: Anticorps \newline
+\textbf{Date:} 03 Mar 2017 - 18 Jun 2017 \newline
+\textbf{Type:} Solo show \newline
+\textbf{Venue:} Galerie Hlavniho Mesta 
+
+"Painter Josef Žácek (*1951), who is the quintessential introverted type of artist, has ironically enough focused most of his metaphoric creative output on social and political subjects. Avoiding explicitly activist approaches, he is rather concerned with generalized and metaphoric ways of conveying his message. He only sporadically shows his work in public, usually spending several years at a time concentrating on a cycle built around a single theme, working with equal measures of rationality and passion. In his current pursuit he formulates his own critical response to the situation brought on by the European migrant crisis, to both covert and blatant manipulative practices of the media, and to mental, economic and administrative limitations of EU policies." \newline
+
+
+
+\textbf{Title:} Stephen Shore - Uncommon Places \newline
+\textbf{Date:} 14 Dec 2013 - 30 Mar 2014 \newline
+\textbf{Type:} Solo show \newline
+\textbf{Venue:} Nevada Museum of Art 
+
+"Stephen Shore's seminal work Uncommon Places is considered one of the most celebrated and influential collections of photographic work produced in the past 40 years. These images chronicle the artist's multiple cross-country road trips, exploring the American landscape from 1973-1981. Shore used a wide-format view camera to capture moments that are highly detailed and complex, presenting to the viewer a dense snapshot of the American built environment. Formal concerns such as framing and structure are paramount to his work. \newline 
+Shore was born in 1947 in New York, and his career began in the mid-1960s, as a frequent visitor and photographic chronicler of the scene at Andy Warhol's "Factory". Warhol's work influenced the young photographer, who began creating his black and white works sequentially and in series, delighting in American culture. The Metropolitan Museum of Art in New York honored Shore with a solo exhibition when he was 23 years old. The same year he began working with color film, attracted to the medium's ability to record the range and intensity of hues seen in life. Shore, together with William Eggleston, is one of the country's pioneering color photographers. His works transforms banal scenes of everyday life into fine art." 

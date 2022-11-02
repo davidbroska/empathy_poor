@@ -1,0 +1,7 @@
+\phantomsection
+\addcontentsline{toc}{section}{Contents}
+
+\begin{spacing}{1.2}
+\tableofcontents 
+\end{spacing}
+\newpage

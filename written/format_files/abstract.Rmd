@@ -1,0 +1,29 @@
+
+
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+\begin{spacing}{1.45}
+
+This study investigates two mechanisms, credentialing and categorization, both of which are believed to alter the perceived worth of individuals and therefore change their chances of success.
+These processes of value formation are analyzed for the case of visual arts. Drawing on a large dataset retrieved from artfacts.net and artbasel.com, I create measurements for credentialing and categorization and examine their relationship with different dimensions of success. 
+
+This study aims to make two contributions. The first goal is to move towards a more integrated approach to research on value formation processes. Scholars have highlighted that the literature on valuation consists of different, partly disconnected approaches and that more research needs to be done on providing clear analytical concepts and operationalizations. To do so, this study puts an emphasis on verifying measurements for credentialing and categorization.
+
+The second goal was to complement the few existing attempts that use topic models for the analysis of cultural processes. Regarding research on valuation in particular, the categorization mechanism has received little attention from a quantitative perspective. I show that topic models allow for more flexibility in designing quantitative studies. In contrast to the typical quantitative research design, topic models allow identifying variables without having to circumscribe the scope of the study by a narrow set of hypotheses.
+
+
+
+
+
+
+\vspace{0.75cm}
+
+\textbf{Keywords:} valuation, credentialing, categorization, network analysis, topic models, regression, visual art
+
+\vspace{1cm}
+
+
+
+\end{spacing}
+
+\newpage
