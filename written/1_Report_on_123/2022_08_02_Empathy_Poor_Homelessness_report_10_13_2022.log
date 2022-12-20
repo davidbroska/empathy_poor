@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.29)  2 NOV 2022 10:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.7)  8 NOV 2022 16:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.tex
 (./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-10-26> (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+LaTeX2e <2022-11-01>
+L3 programming layer <2022-11-02> (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -20,7 +20,7 @@ File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@table=\count192
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen140
 ) (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip49
@@ -30,10 +30,10 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
-\ex@=\dimen139
+\ex@=\dimen141
 )) (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
+\pmbraise@=\dimen142
 ) (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
@@ -54,7 +54,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen141
+\big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count198
@@ -72,12 +72,12 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count269
 \maxfields@=\count270
 \andhelp@=\toks18
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
 \@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
@@ -148,8 +148,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-\stockwidth=\dimen148
-\stockheight=\dimen149
 ) (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
@@ -218,7 +216,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count282
 \@thisrulewidth=\dimen171
 ) (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen172
 \ar@mcellbox=\box58
 \extrarowheight=\dimen173
@@ -575,208 +573,242 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lof=\write5
 \openout5 = `2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.lof'.
 
-(./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.lot)
+(./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.lot [3])
 \tf@lot=\write6
 \openout6 = `2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.lot'.
 
-[3]
+[4]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 214.
 (/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1] [2]
-Overfull \hbox (55.84978pt too wide) in paragraph at lines 358--368
- [][] 
- []
-
-[3]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf, id=292, 469.755pt x 325.215pt>
+) [1] [2] [3]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf, id=349, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf  used on input line 434.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [4]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf, id=301, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf, id=358, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf  used on input line 446.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [5 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-general-welfare-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf, id=317, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf, id=373, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf  used on input line 455.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf, id=318, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf, id=374, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf  used on input line 465.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [6 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-specific-welfare-preferences-insurance-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf, id=344, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf, id=400, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 470.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf, id=345, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf, id=401, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf  used on input line 477.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [7 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-2-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-3-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf, id=373, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf, id=429, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf  used on input line 486.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf, id=374, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf, id=430, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 496.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [8 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-childhood-education-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/social-mobility-college-education-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf, id=399, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf, id=457, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf  used on input line 506.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf, id=400, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf, id=458, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf  used on input line 514.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [9 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-4-1.pdf>] [10 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-1-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf, id=433, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf, id=489, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf  used on input line 526.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf, id=434, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf, id=490, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf  used on input line 534.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [11 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/empathetic-concern-2-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-1-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf, id=460, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf, id=516, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf  used on input line 544.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf, id=461, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf, id=517, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf  used on input line 546.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [12 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perspective-taking-2-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-6-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf, id=486, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf, id=542, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf  used on input line 553.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf, id=487, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf, id=543, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf>
 Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf  used on input line 561.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [13 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-7-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-1-1.pdf>] [14 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/dispositional-attribution-2-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf, id=528, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perceived-income-1.pdf, id=585, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perceived-income-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perceived-income-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perceived-income-1.pdf  used on input line 578.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-8-1.pdf, id=586, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-8-1.pdf  used on input line 587.
+(pdftex.def)             Requested size: 325.314pt x 225.21738pt.
+[15 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/perceived-income-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-8-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-GenWelfSupp-Welf4Poor-1.pdf, id=603, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-GenWelfSupp-Welf4Poor-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-GenWelfSupp-Welf4Poor-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-GenWelfSupp-Welf4Poor-1.pdf  used on input line 627.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-Welf4HardWork-SpecWelf4Mobility-1.pdf, id=604, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-Welf4HardWork-SpecWelf4Mobility-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-Welf4HardWork-SpecWelf4Mobility-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-Welf4HardWork-SpecWelf4Mobility-1.pdf  used on input line 636.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[16 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-GenWelfSupp-Welf4Poor-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-SpecWelf4Poor-IneqMagnPercep-1.pdf, id=621, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-SpecWelf4Poor-IneqMagnPercep-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-SpecWelf4Poor-IneqMagnPercep-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-SpecWelf4Poor-IneqMagnPercep-1.pdf  used on input line 645.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-empa-persp-1.pdf, id=622, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-empa-persp-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-empa-persp-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-empa-persp-1.pdf  used on input line 657.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[17 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-Welf4HardWork-SpecWelf4Mobility-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-SpecWelf4Poor-IneqMagnPercep-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-attribution-1.pdf, id=647, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-attribution-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-attribution-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-attribution-1.pdf  used on input line 666.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf, id=648, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf  used on input line 578.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf  used on input line 681.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[18 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-empa-persp-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/composite-attribution-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 589.
+(Font)              <9> on input line 692.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 589.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf, id=529, 469.755pt x 325.215pt>
+(Font)              <6> on input line 692.
+
+Overfull \hbox (8.31805pt too wide) in paragraph at lines 692--718
+ [][] 
+ []
+
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf, id=675, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf  used on input line 622.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf  used on input line 725.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-[15 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf>]
-Overfull \hbox (44.09872pt too wide) in paragraph at lines 633--677
+[19 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-1.pdf>]
+Overfull \hbox (53.85362pt too wide) in paragraph at lines 736--780
  [][] 
  []
 
-[16 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf, id=558, 469.755pt x 325.215pt>
+[20 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-two-conditions-controlling-for-demographics-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf, id=704, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf  used on input line 684.
-(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-[17]
-Overfull \hbox (5.76088pt too wide) in paragraph at lines 695--721
- [][] 
- []
-
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf, id=563, 469.755pt x 325.215pt>
-File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf Graphic file (type pdf)
-<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf  used on input line 725.
-(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-[18 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf>]
-Overfull \hbox (5.76088pt too wide) in paragraph at lines 736--760
- [][] 
- []
-
-[19 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf, id=583, 469.755pt x 325.215pt>
-File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf Graphic file (type pdf)
-<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf  used on input line 769.
-(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-
-Overfull \hbox (5.76088pt too wide) in paragraph at lines 780--824
- [][] 
- []
-
-[20 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf, id=594, 469.755pt x 325.215pt>
-File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf Graphic file (type pdf)
-<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf  used on input line 828.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf  used on input line 787.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
 [21]
-Overfull \hbox (5.76088pt too wide) in paragraph at lines 839--881
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf, id=709, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf  used on input line 828.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[22 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-1.pdf>] [23 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-me-effects-conditions-without-interaction-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf, id=729, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf  used on input line 872.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[24 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-two-conditions-controlling-for-demographics-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf, id=740, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf  used on input line 931.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[25]
+Overfull \hbox (6.76363pt too wide) in paragraph at lines 942--984
  [][] 
  []
 
-[22 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf>] [23]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf, id=613, 469.755pt x 325.215pt>
+[26 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-me-dem-noI-two-conditions-controlling-for-demographics-1.pdf>] [27]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf, id=759, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf  used on input line 890.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf  used on input line 993.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf, id=614, 469.755pt x 325.215pt>
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf, id=760, 469.755pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf  used on input line 899.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf  used on input line 1002.
 (pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
-[24 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf>]
-<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf, id=638, 505.89pt x 325.215pt>
+[28 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-low-1.pdf> <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-effects-mediation-high-1.pdf>]
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf, id=785, 505.89pt x 325.215pt>
 File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf Graphic file (type pdf)
 <use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf>
-Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf  used on input line 922.
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf  used on input line 1025.
 (pdftex.def)             Requested size: 425.42328pt x 273.4864pt.
-[25 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf>] [26] (./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.aux)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1035.
+(/Users/davidbroska/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-19-1.pdf, id=786, 469.755pt x 325.215pt>
+File: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-19-1.pdf>
+Package pdftex.def Info: 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-19-1.pdf  used on input line 1039.
+(pdftex.def)             Requested size: 425.41338pt x 294.51694pt.
+[29 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/plot-lm-means-general-welfare-1.pdf>] [30 <./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022_files/figure-latex/unnamed-chunk-19-1.pdf>] [31] (./2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.out' has not changed.
-(rerunfilecheck)             Checksum: 5E9115D8940E3FE31A51F585D943FA01;5732.
+(rerunfilecheck)             Checksum: 29B6101E5D4880451067476D4BDD47ED;6525.
  ) 
 Here is how much of TeX's memory you used:
- 13286 strings out of 477026
- 233706 string characters out of 5826825
- 588150 words of memory out of 5000000
- 34013 multiletter control sequences out of 15000+600000
- 521261 words of font info for 66 fonts, out of 8000000 for 9000
+ 13446 strings out of 476931
+ 242401 string characters out of 5824174
+ 584815 words of memory out of 5000000
+ 34228 multiletter control sequences out of 15000+600000
+ 521580 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,17n,77p,611b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.pdf (30 pages, 781190 bytes).
+ 72i,17n,77p,611b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></Users/davidbroska/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on 2022_08_02_Empathy_Poor_Homelessness_report_10_13_2022.pdf (36 pages, 1014602 bytes).
 PDF statistics:
- 761 PDF objects out of 1000 (max. 8388607)
- 645 compressed objects within 7 object streams
- 140 named destinations out of 1000 (max. 500000)
- 398 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 791 compressed objects within 8 object streams
+ 168 named destinations out of 1000 (max. 500000)
+ 494 words of extra memory for PDF output out of 10000 (max. 10000000)
 

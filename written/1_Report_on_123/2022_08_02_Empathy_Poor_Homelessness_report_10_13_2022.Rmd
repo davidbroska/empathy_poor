@@ -35,7 +35,7 @@ if(quick_compile){
     n_boot = 1000
     message("Full compile with ",n_boot, "bootstraps")
 }
-
+options(knitr.kable.NA = '-')
 knitr::opts_chunk$set(echo = F, out.width = "85%", fig.pos = 'H', fig.align = "center")
 options(scipen=999, dplyr.summarise.inform = FALSE)
 library(dplyr)
@@ -85,9 +85,9 @@ for (i in 1:length(df_raw123$income_num)){
 df_raw123$income_num <- m
 
 
-composite_mes <- c("empa_conc", "persp_tak", "me_dispos_attr", "me_situational_attr")
-composite_dvs <- c("dv_gen_welfare", "dv_spec_foodstamps", "dv_spec_insurance", 
-                   "dv_welfare_poor", "dv_welfare_hard", "dv_mobility_highered", "dv_mobility_preschool")
+composite_mes <- c("empa_conc", "persp_tak", "me_dispos_attr", "me_situational_attr", "sub_effort_1")
+composite_dvs <- c("GenWelfSupp", "Welf4Poor", "Welf4HardWork", 
+                   "SpecWelf4Mobility", "SpecWelf4Poor","IneqMagnPercep")
 
 ```
 
@@ -133,7 +133,14 @@ df_raw <- df_raw %>%
     mobility_condition=="low"&mob_manip_check=="Opportunities to advance through hard-work are very limited"~1)) %>% 
   mutate(mob_manip_correct = ifelse(is.na(mob_manip_correct), 0, 1), 
          # attention check failed if they did not fill it out or if they did not select Cashier
-         att_check_passed = if_else(!is.na(attention_check) & attention_check == "Cashier", 1, 0)) 
+         att_check_passed = if_else(!is.na(attention_check) & attention_check == "Cashier", 1, 0)) %>% 
+  mutate(past_inc_lvl = str_extract(past_income,"[0-9]") %>% as.numeric(), 
+         curr_inc_lvl = str_extract(current_income,"[0-9]") %>%as.numeric(), 
+         mobility = case_when(past_inc_lvl == curr_inc_lvl ~ "steady", 
+                              past_inc_lvl > curr_inc_lvl ~ "down", 
+                              past_inc_lvl < curr_inc_lvl ~ "upward"))
+
+
 
 
 # attention check
@@ -149,8 +156,8 @@ pval_emp_manip3 <- t.test(emp_manip_check_5 ~ empathy_condition,df_raw)$p.value
 
 ttest_sub_emob <- t.test(sub_effort_1 ~ mobility_condition, df_raw) 
 
-# keep 
-df <- df_raw %>% filter(mob_manip_correct == 1, att_check_passed == 1)
+# attention check was measured pretreatment
+df <- df_raw %>% filter(att_check_passed == 1)
 
 report_pval <- function(pval){
   ifelse(pval < 0.01, "p < 0.01", paste0("p $\\approx$ ",round(pval, 2)))
@@ -158,34 +165,22 @@ report_pval <- function(pval){
 ```
 
 ```{r create-composite, message=F, warning=F}
-
-
-df_dv_gen_welfare <- df %>% select(dv_gen_welfare_1, dv_gen_welfare_2rec) 
-df_dv_spec_foodstamps <- df %>% select(dv_spec_welfare_pol_1, dv_spec_welfare_pol_2)
-df_dv_spec_insurance <- df %>% select(dv_spec_welfare_pol_13, dv_spec_welfare_pol_14)
-df_dv_welfare_poor <- df %>% select(dv_welfare_poor_hard_1, dv_welfare_poor_hard_2) 
-df_dv_welfare_hard <- df %>% select(dv_welfare_poor_hard_13, dv_welfare_poor_hard_14)
-df_dv_mobility_highered <- df %>% select(dv_mobility_pol_10, dv_mobility_pol_2)
-df_dv_mobility_preschool <- df %>% select(dv_mobility_pol_1, dv_mobility_pol_3) 
+df_GenWelfSupp <- df %>% select(dv_gen_welfare_1, dv_gen_welfare_2rec) 
+df_Welf4Poor <- df %>% select(dv_welfare_poor_hard_1, dv_welfare_poor_hard_2) 
+df_Welf4HardWork <- df %>% select(dv_welfare_poor_hard_13, dv_welfare_poor_hard_14)
+df_SpecWelf4Mobility <- df %>% select(dv_mobility_pol_10, dv_mobility_pol_2,
+                                         dv_mobility_pol_1, dv_mobility_pol_3) 
+df_SpecWelf4Poor <- df %>% select(dv_spec_welfare_pol_1, dv_spec_welfare_pol_2,
+                                       dv_spec_welfare_pol_13, dv_spec_welfare_pol_14)
+df_IneqMagnPercep <- df %>% select(dv_ineq_1)
 
 # create composite items 
-df$dv_gen_welfare <- df_dv_gen_welfare %>% {{rowSums(.) / ncol(.)}}
-df$dv_spec_foodstamps <- df_dv_spec_foodstamps %>% {{rowSums(.) / ncol(.)}}
-df$dv_spec_insurance <- df_dv_spec_insurance %>% {{rowSums(.) / ncol(.)}}
-df$dv_welfare_poor <- df_dv_welfare_poor %>% {{rowSums(.) / ncol(.)}}
-df$dv_welfare_hard <- df_dv_welfare_hard %>% {{rowSums(.) / ncol(.)}}
-df$dv_mobility_highered <- df_dv_mobility_highered %>% {{rowSums(.) / ncol(.)}}
-df$dv_mobility_preschool <- df_dv_mobility_preschool %>% {{rowSums(.) / ncol(.)}}
-
-
-# welfare support
-all_dvs_df <- df %>% 
-  select(dv_gen_welfare_1, dv_gen_welfare_2rec, 
-         dv_spec_welfare_pol_1, dv_spec_welfare_pol_13, dv_spec_welfare_pol_2, dv_spec_welfare_pol_14, 
-         dv_welfare_poor_hard_1, dv_welfare_poor_hard_1, dv_welfare_poor_hard_13, dv_welfare_poor_hard_14)
-a_welfare <- psych::alpha(all_dvs_df)
-df$dv_welfare <- rowSums(all_dvs_df) / ncol(all_dvs_df)
-
+df$GenWelfSupp <- df_GenWelfSupp %>% {{rowSums(.) / ncol(.)}}
+df$Welf4Poor <- df_Welf4Poor %>% {{rowSums(.) / ncol(.)}}
+df$Welf4HardWork <- df_Welf4HardWork %>% {{rowSums(.) / ncol(.)}}
+df$SpecWelf4Mobility <- df_SpecWelf4Mobility %>% {{rowSums(.) / ncol(.)}}
+df$SpecWelf4Poor <- df_SpecWelf4Poor %>% {{rowSums(.) / ncol(.)}}
+df$IneqMagnPercep <-  df %>% select(dv_ineq_1) %>% pull()
 # situational attribution of poverty
 all_situational_df <- df %>% select(me_situational_attr_1, me_situational_attr_2,
                                     me_situational_attr_3, me_situational_attr_4)
@@ -218,6 +213,7 @@ df$persp_tak <- dv_me_persp_tak %>% {{rowSums(.) / ncol(.)}}
 # https://ademos.people.uic.edu/Chapter15.html#41_create_the_necessary_regression_models
 #df <- df %>% mutate_at(vars(c(composite_dvs, composite_mes)), ~ scale(., center = T, scale =F)[,])
 ```
+
 
 
 ## Attention and manipulation checks
@@ -328,28 +324,28 @@ tibble(variable = col_names, question_text) %>%
 
 ```{r table-composite-dv-key}
 tab_composite_dv_key <- tibble(composite = composite_dvs, 
-       variables = c(paste0(colnames(df_dv_gen_welfare), collapse=", "),
-                     paste0(colnames(df_dv_spec_foodstamps), collapse=","), 
-                     paste0(colnames(df_dv_spec_insurance), collapse=","),
-                     paste0(colnames(df_dv_welfare_poor), collapse=","), 
-                     paste0(colnames(df_dv_welfare_hard), collapse=","), 
-                     paste0(colnames(df_dv_mobility_highered), collapse=","),
-                     paste0(colnames(df_dv_mobility_preschool), collapse=","))) %>% 
-  mutate(label  = composite %>%  str_replace_all("dv_gen_welfare", "General") %>%
-           str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
-           str_replace_all("dv_spec_insurance", "Insurance") %>%
-           str_replace_all("dv_welfare_poor", "For poor") %>% 
-           str_replace_all("dv_welfare_hard", "For hard-working") %>%
-           str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
-           str_replace_all("dv_mobility_preschool", "Preschool") %>%
-           factor(levels = c("General", "Food stamps", "Insurance", "For poor", "For hard-working", "Higher ed.", "Preschool"))) %>% 
-  select(label, composite, variables) 
+       variables = c(paste0(colnames(df_GenWelfSupp), collapse=", "),
+                     paste0(colnames(df_Welf4Poor), collapse=", "), 
+                     paste0(colnames(df_Welf4HardWork), collapse=", "),
+                     paste0(colnames(df_SpecWelf4Mobility), collapse = ", "),
+                     paste0(colnames(df_SpecWelf4Poor), collapse = ", "),
+                     paste0(colnames(df_IneqMagnPercep), collapse=", "))) %>% 
+  # mutate(label  = composite %>%  str_replace_all("dv_gen_welfare", "General") %>%
+  #          str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
+  #          str_replace_all("dv_spec_insurance", "Insurance") %>%
+  #          str_replace_all("dv_welfare_poor", "For poor") %>% 
+  #          str_replace_all("dv_welfare_hard", "For hard-working") %>%
+  #          str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
+  #          str_replace_all("dv_mobility_preschool", "Preschool") %>%
+  #          factor(levels = c("General", "Food stamps", "Insurance", "For poor", "For hard-working", "Higher ed.", "Preschool"))) %>% 
+  select(composite, variables) 
 
 
 tab_composite_dv_key%>% 
-    kable(col.names = c("Label", "Composite", "Items"), 
+    kable(col.names = c("Composite", "Items"), 
           booktabs= T, caption = "Key to composite dependent variables") %>% 
-  kable_styling(latex_options =c("striped", "HOLD_position")) 
+  kable_styling(latex_options =c("striped", "HOLD_position")) %>% 
+  column_spec(2, width = "25em")
 
 ```
 
@@ -359,19 +355,21 @@ tab_composite_me_key <- tibble(composite = composite_mes,
        variables = c(paste0(colnames(all_empathy_df), collapse=", "),
                      paste0(colnames(dv_me_persp_tak), collapse=", "), 
                      paste0(colnames(df_me_dispos_attr), collapse=", "),
-                     paste0(colnames(df_me_situational_attr), collapse=", "))) %>% 
-  mutate(label  = composite %>%  str_replace_all("empa_conc", "Empathetic concern") %>%
-           str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
-           str_replace_all("persp_tak", "Perspective taking") %>%
-           str_replace_all("me_dispos_attr", "Dispositional attribution") %>% 
-           str_replace_all("me_situational_attr", "Situational attribution") %>%
-           factor(levels = c("Empathetic concern", "Food stamps", "Perspective taking", "Dispositional attribution", "Situational attribution"))) %>% 
+                     paste0(colnames(df_me_situational_attr), collapse=", "), 
+                     "sub_effort_1")) %>% 
+  mutate(label  = composite %>%  str_replace_all("empa_conc", "Empathy") %>%
+           str_replace_all("persp_tak", "PerspTak") %>%
+           str_replace_all("me_dispos_attr", "DispAttr") %>% 
+           str_replace_all("me_situational_attr", "SitAttr") %>%
+           str_replace_all("sub_effort_1", "SubjMob") %>%
+           factor(levels = c("Empathy", "PerspTak", "DispAttr", "SitAttr","SubjMob"))) %>% 
   select(label, composite, variables)
 
 tab_composite_me_key%>% 
     kable(col.names = c("Label", "Composite", "Items"), 
           booktabs= T, caption = "Key to composite mediators") %>% 
-  kable_styling(latex_options = c("striped", "HOLD_position")) 
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>% 
+  column_spec(3, width = "22em")
 ```
 
 
@@ -387,26 +385,26 @@ tab_composite_me_key%>%
 
 ```{r cronbach-alpha-dv, message=F, warning=F}
 # cronbach's alpha
-a_dv_gen_welfare <- psych::alpha(df_dv_gen_welfare)
-a_dv_spec_foodstamps <- psych::alpha(df_dv_spec_foodstamps)
-a_dv_spec_insurance <- psych::alpha(df_dv_spec_insurance)
-a_dv_welfare_poor <- psych::alpha(df_dv_welfare_poor)
-a_dv_welfare_hard <- psych::alpha(df_dv_welfare_hard)
-a_dv_mobility_highered <- psych::alpha(df_dv_mobility_highered)
-a_dv_mobility_preschool <- psych::alpha(df_dv_mobility_preschool) 
+a_dv_GenWelfSupp <- psych::alpha(df_GenWelfSupp)
+a_dv_Welf4Poor <- psych::alpha(df_Welf4Poor)
+a_dv_Welf4HardWork <- psych::alpha(df_Welf4HardWork)
+a_dv_SpecWelf4Mobility <- psych::alpha(df_SpecWelf4Mobility)
+a_dv_SpecWelf4Poor <- psych::alpha(df_SpecWelf4Poor)
+a_dv_IneqMagnPercep <- NA
 
 
-dv_raw_alphas = list(a_dv_gen_welfare, a_dv_spec_foodstamps, a_dv_spec_insurance, a_dv_welfare_poor, a_dv_welfare_hard, a_dv_mobility_highered, a_dv_mobility_preschool) %>% lapply(function(l) l[[1]]) %>% do.call(rbind, .)
+
+dv_raw_alphas = list(a_dv_GenWelfSupp, a_dv_Welf4Poor, a_dv_Welf4HardWork, a_dv_SpecWelf4Mobility, a_dv_SpecWelf4Poor,a_dv_IneqMagnPercep) %>% lapply(function(l) l[[1]]) %>% do.call(rbind, .)
   
 tibble(var = composite_dvs, dv_raw_alphas[,1:3]) %>% 
-  mutate(var = str_replace_all(var, "dv_gen_welfare", "General") %>% 
-                           str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
-                           str_replace_all("dv_spec_insurance", "Insurance") %>% 
-                           str_replace_all("dv_welfare_poor", "For poor") %>% 
-                           str_replace_all("dv_welfare_hard", "For hard-working") %>% 
-                           str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
-                           str_replace_all("dv_mobility_preschool", "Preschool") %>% 
-           factor(levels = c("General", "Food stamps", "Insurance", "For poor", "For hard-working", "Higher ed.", "Preschool")[7:1])) %>% 
+  # mutate(var = str_replace_all(var, "dv_gen_welfare", "General") %>% 
+  #                          str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
+  #                          str_replace_all("dv_spec_insurance", "Insurance") %>% 
+  #                          str_replace_all("dv_welfare_poor", "For poor") %>% 
+  #                          str_replace_all("dv_welfare_hard", "For hard-working") %>% 
+  #                          str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
+  #                          str_replace_all("dv_mobility_preschool", "Preschool") %>% 
+  #          factor(levels = c("General", "Food stamps", "Insurance", "For poor", "For hard-working", "Higher ed.", "Preschool")[7:1])) %>% 
   kable(digits = 2, align = c("l","c","c","c"), booktabs =T, col.names = c("Composite", "raw", "standardized", "Lambda 6"), caption = "Reliability for each of the two items used to form the composite scales for welfare policy support") %>% 
   kable_styling(latex_options = c("HOLD_position", "striped")) %>%  
   collapse_rows(columns = 1) %>% 
@@ -415,14 +413,16 @@ tibble(var = composite_dvs, dv_raw_alphas[,1:3]) %>%
 ```
 
 ```{r cronbach-alpha-me}
-me_raw_alphas = list(a_empathy, a_persp_tak, a_dispositional, a_situational) %>% lapply(function(l) l[[1]]) %>% do.call(rbind, .)
+a_SubjMob<-NA
+me_raw_alphas = list(a_empathy, a_persp_tak, a_dispositional, a_situational, a_SubjMob) %>% lapply(function(l) l[[1]]) %>% do.call(rbind, .)
   
 tibble(var = composite_mes, me_raw_alphas[,1:3])  %>% 
-  mutate(var = str_replace_all(var, "empa_conc", "Empathetic concern") %>% 
-                           str_replace_all("persp_tak", "Perspective taking") %>% 
-                           str_replace_all("me_situational_attr","Situational attribution")%>%
-                           str_replace_all("me_dispos_attr", "Dispositional attribution") %>% 
-           factor(levels = c("Empathetic concern", "Perspective taking", "Dispositional attribution", "Situational attribution"))) %>% 
+  mutate(var = str_replace_all(var, "empa_conc", "Empathy") %>% 
+                           str_replace_all("persp_tak", "PerspTak") %>% 
+                           str_replace_all("me_situational_attr","SitAttr")%>%
+                           str_replace_all("me_dispos_attr", "DispAttr") %>% 
+                           str_replace_all("sub_effort_1", "SubjMob") %>% 
+           factor(levels = c("Empathy", "PerspTak", "DispAttr", "SitAttr", "SubjMob"))) %>% 
   kable(digits = 2, align = c("l","c","c","c"), booktabs =T, col.names = c("Composite", "raw", "standardized", "Lambda 6"), caption = "Reliability for all items used to form the composite scales for mediators") %>% 
   kable_styling(latex_options = c("HOLD_position", "striped")) %>%  
   collapse_rows(columns = 1) %>% 
@@ -496,7 +496,8 @@ plot_dv <- function(dependent_var, ylab="Agreement", xlab="Empathy Condition",ca
          x =xlab, y = ylab, caption = caption, color = "Party") + 
     theme(plot.subtitle = element_textbox_simple()) + 
     theme(text = element_text(size = 8))  + 
-    geom_text(aes(x=empathy_condition,y=-3, label=paste0("m=",round(mean.value,1))), size=2, fontface="plain")
+    geom_text(aes(x=empathy_condition,y=-3, 
+                  label=paste0("m=",round(mean.value,1),"\nse=",round(se.mean,1))), size=2, fontface="plain")
   
 }
 se_caption <- paste0("Note: The plot shows the means in the four groups and the associated standard error of the mean.")
@@ -626,7 +627,7 @@ ggarrange(plot_dv("dv_mobility_pol_2",ylab = "",xlab = ""),
 ### Inequality
 
 ```{r}
-plot_dv("dv_ineq_1")
+plot_dv("dv_ineq_1", ylab = "Small to large")
 ```
 ## Mediators
 
@@ -733,6 +734,114 @@ ggarrange(plot_dv("me_dispos_attr_7",ylab = "",xlab = ""),
 
 \newpage
 
+## Moderators
+
+### Perceived income
+
+```{r perceived-income, fig.cap="Perceived level of income when growing up versus current perceived income"}
+df %>% 
+  select(past_income, current_income) %>% 
+  tidyr::gather() %>% 
+  mutate(key = factor(key, levels = c("past_income", "current_income")),
+         value= str_remove(value, "[0-9]: ") %>% str_remove(" average") %>% tolower() %>% factor(levels = c("far below", "below", "average", "above", "far above"))) %>% 
+  group_by(key, value) %>% 
+  count() %>% 
+  group_by(key) %>% 
+  mutate(n_responses = sum(n), perc = n / sum(n)) %>% 
+  ggplot(aes(value, perc)) + 
+  geom_col() +
+  facet_grid(~key, labeller = as_labeller(c("past_income"="Income when growing up", "current_income"="Current income"))) + 
+  labs(x = "Perceived level of income compared to other Americans", y = "% of respondents")
+```
+
+
+```{r, fig.cap="Number of respondents who experienced upward mobility, downward mobility, or no change in socioeconomic status", out.width="65%"}
+ggplot(df, aes(mobility)) + 
+  geom_bar()
+```
+
+```{r tab-ses-transition}
+trans_tab <- df %>% 
+  select(past_income, current_income) %>% 
+  mutate_all(~str_remove(., "[0-9]: ") %>% str_remove(" average") %>% tolower() %>% factor(levels = c("far below", "below", "average", "above", "far above"))) %>%  
+  table() %>% 
+  prop.table() %>% 
+  {{100 * .}} 
+
+trans_tab %>% 
+  kable(digits = 2, caption = "Transition percentages from perceived past income (rows) to perceived current income (columns)") %>% 
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+```{r}
+perc_high_mob <- sum(trans_tab[upper.tri(trans_tab)])
+perc_low_mob  <- sum(trans_tab[lower.tri(trans_tab)])
+```
+
+The upper triangle of the table indicates the percentage of respondents who experienced upward mobility (`r round(perc_high_mob,1)`% in total).
+
+The lower triangle of the table indicates the percentage of respondents who experienced downward mobility (`r round(perc_low_mob,1)`% in total). 
+
+
+
+
+# Composite
+
+## Dependent variables
+
+```{r create-composite-dv-plots, include=F}
+composite_dv_plots <- lapply(composite_dvs, 
+                          function(dv) plot_dv(dv,ylab = "",xlab = "", subtitle = dv))
+
+composite_dv_plots_pairs <- list()
+for(i in 1:3){
+  composite_dv_plots_pairs[[i]] <- ggarrange(composite_dv_plots[[2 * i-1]],
+                                          composite_dv_plots[[2 * i]], 
+            nrow=1,labels = "auto", font.label = list(size=11)) %>%  
+  annotate_figure(bottom = text_grob("Empathy Condition", size=10),
+                  left = text_grob("Agreement",size=10, rot = 90))
+            
+}
+          
+```
+
+```{r composite-GenWelfSupp-Welf4Poor, fig.cap="GenWelfSupp and Welf4Poor composite"}
+composite_dv_plots_pairs[[1]]
+```
+
+```{r composite-Welf4HardWork-SpecWelf4Mobility, fig.cap="Welf4HardWork and SpecWelf4Mobility"}
+composite_dv_plots_pairs[[2]]
+```
+
+```{r composite-SpecWelf4Poor-IneqMagnPercep, fig.cap="SpecWelf4Poor and IneqMagnPercept composite"}
+composite_dv_plots_pairs[[3]]
+```
+
+## Mediators
+
+```{r create-composite-me-plots, include=F}
+composite_me_plots <- lapply(composite_mes, 
+                          function(me) plot_dv(me,ylab = "",xlab = "", subtitle = me))
+
+composite_me_plots_pairs <- list()
+for(i in 1:2){
+  composite_me_plots_pairs[[i]] <- ggarrange(composite_me_plots[[2 * i-1]],composite_me_plots[[2*i]],  nrow=1,labels = "auto", font.label = list(size=11)) %>%  
+  annotate_figure(bottom = text_grob("Empathy Condition", size=10),
+                  left = text_grob("Agreement",size=10, rot = 90))
+            
+}
+          
+```
+
+```{r composite-empa-persp, fig.cap="Empathetic concern and perspective taking composite"}
+composite_me_plots_pairs[[1]]
+```
+
+```{r composite-attribution, fig.cap="Dispositional and situational attribution composite"}
+composite_me_plots_pairs[[2]]
+```
+
+
 # Regression analysis
 
 ```{r model-estimate-conditions}
@@ -744,7 +853,7 @@ names(sm) <- paste0("sm_", composite_dvs)                                       
 # create data frame with model statistics
 sm_summs <- lapply(sm, function(m) broom::tidy(m, conf.int=T)) %>% do.call(rbind, .)
 # create column with dv name 
-sm_summs$dv <- lapply(names(sm), function(n) rep(n, length(coef(sm$sm_dv_gen_welfare)))) %>% unlist()
+sm_summs$dv <- lapply(names(sm), function(n) rep(n, length(coef(sm[[1]])))) %>% unlist()
 sm_summs <- sm_summs %>% 
   mutate(term = factor(term, levels = c("(Intercept)", "mobility_conditionlow", "empathy_conditiontreatment", "mobility_conditionlow:empathy_conditiontreatment"), 
                 labels = c("(Intercept)", "Low mobility", "Homelessness", "Low mob. x Homelessness")), 
@@ -756,8 +865,6 @@ sm_summs <- sm_summs %>%
 # model_dashboard(sm$sm_dv_mobility_pol_10)
 
 breaks <- sm_summs %>% filter(term != "(Intercept)") %>% summarise(range = max(estimate)+5,  min(estimate)-5) %>% pretty()
-
-  
 ```
 
 ```{r model-estimate-conditions-and-demographics}
@@ -769,7 +876,7 @@ names(dm) <- paste0("dm_", composite_dvs)                                       
 # create data frame with model statistics
 dm_summs <- lapply(dm, function(m) broom::tidy(m, conf.int=T)) %>% do.call(rbind, .)
 # create column with dv name 
-dm_summs$dv <- lapply(names(dm), function(n) rep(n, length(coef(dm$dm_dv_gen_welfare)))) %>% unlist()
+dm_summs$dv <- lapply(names(dm), function(n) rep(n, length(coef(dm[[1]])))) %>% unlist()
 # dm_summs <- dm_summs %>% 
 #   mutate(term = factor(term, levels = c("(Intercept)", "mobility_conditionlow", "empathy_conditiontreatment", "mobility_conditionlow:empathy_conditiontreatment"), 
 #                 labels = c("(Intercept)", "Low mobility", "Homelessness", "Low mob. x Homelessness")), 
@@ -812,8 +919,9 @@ sm_dv_names <- data.frame(dv = names(sm)) %>%
 ```{r plot-effects-two-conditions, fig.cap="Effect plot for the two conditions and their interaction"}
 sm_summs %>% 
   filter(term != "(Intercept)") %>% 
-  left_join(sm_dv_names, by =c("dv"="dv")) %>% 
-  ggplot(aes(estimate, label, height=0, xmin=conf.low,xmax=conf.high)) +  
+  mutate(dv = str_remove(dv, "sm_") %>% factor(levels = composite_dvs[length(composite_dvs):1])) %>% 
+  #left_join(sm_dv_names, by =c("dv"="dv")) %>% 
+  ggplot(aes(estimate, dv, height=0, xmin=conf.low,xmax=conf.high)) +  
   geom_point() + 
   facet_wrap(~ term) +
   geom_vline(xintercept = 0, lty = 4) + 
@@ -840,7 +948,7 @@ stargazer(sm, table.placement = "H", digits = 2,
           #covariate.labels = sm_coef_names$label,
           dep.var.caption = "Dependent variables: Support for welfare policies",
           column.sep.width = "-11pt", 
-          dep.var.labels = as.character(sm_dv_names$label),  
+          #dep.var.labels = as.character(sm_dv_names$label),  
           header = F,
           label = "tab:spec-welfare-stargazer",
           title = "Regression table for welfare preferences")
@@ -867,8 +975,9 @@ dm_summs %>%
   mutate(term = term %>% str_replace_all("empathy_conditiontreatment", "Poverty") %>%
     str_replace_all("mobility_conditionlow", "Low Mobility") %>% 
     str_replace_all("mobility_conditionlow:empathy_conditiontreatment", "Low Mobility:Poverty") %>% factor(levels = c("Low Mobility","Poverty","Low Mobility:Poverty"))) %>% 
-  left_join(dm_dv_names, by =c("dv"="dv")) %>% 
-  ggplot(aes(estimate, label, height=0, xmin=conf.low,xmax=conf.high)) +  
+  #left_join(dm_dv_names, by =c("dv"="dv")) %>% 
+  mutate(dv=dv %>% str_remove("dm_") %>% factor(levels=composite_dvs[length(composite_dvs):1])) %>% 
+  ggplot(aes(estimate, dv, height=0, xmin=conf.low,xmax=conf.high)) +  
   geom_point() + 
   facet_wrap(~ term) +
   geom_vline(xintercept = 0, lty = 4) + 
@@ -902,7 +1011,7 @@ stargazer(dm, table.placement = "H", digits = 2,
           single.row = F, 
           intercept.bottom = F,
           dep.var.caption = "Dependent variables: Support for welfare policies",
-          column.sep.width = "-17.5pt", 
+          column.sep.width = "-9.5pt", 
           dep.var.labels = as.character(dm_dv_names$label),  
           header = F,
           label = "tab:dem-welfare-stargazer",
@@ -922,7 +1031,7 @@ names(sm_me) <- paste0("sm_", composite_mes)                                    
 # create data frame with model statistics
 sm_me_summs <- lapply(sm_me, function(m) broom::tidy(m, conf.int=T)) %>% do.call(rbind, .)
 # create column with dv name 
-sm_me_summs$dv <- lapply(names(sm_me), function(n) rep(n, length(coef(sm_me$sm_empa_conc)))) %>% unlist()
+sm_me_summs$dv <- lapply(names(sm_me), function(n) rep(n, length(coef(sm_me[[1]])))) %>% unlist()
 sm_me_summs <- sm_me_summs %>% 
   mutate(term = factor(term, levels = c("(Intercept)", "mobility_conditionlow", "empathy_conditiontreatment", "mobility_conditionlow:empathy_conditiontreatment"), 
                 labels = c("(Intercept)", "Low mobility", "Poverty", "Low mob. x Poverty")), 
@@ -937,11 +1046,12 @@ breaks <- sm_me_summs %>% filter(term != "(Intercept)") %>% summarize(range = ma
 
 sm_me_names <- data.frame(dv = names(sm_me)) %>% 
   mutate(label = dv %>% str_remove("sm_") %>% 
-           str_replace_all("empa_conc", "Empathetic concern") %>% 
-           str_replace_all("persp_tak", "Perspective taking") %>%
-           str_replace_all("me_situational_attr","Situational attribution")%>%
-           str_replace_all("me_dispos_attr", "Dispositional attribution") %>%
-           factor(levels = c("Situational attribution", "Dispositional attribution", "Perspective taking","Empathetic concern")))
+           str_replace_all("empa_conc", "Empathy") %>% 
+           str_replace_all("persp_tak", "PerspTak") %>%
+           str_replace_all("me_situational_attr","SitAttr")%>%
+           str_replace_all("me_dispos_attr", "DispAttr") %>%
+           str_replace_all("sub_effort_1", "SubjMob") %>%
+           factor(levels = c("SitAttr", "DispAttr", "PerspTak","Empathy","SubjMob")))
 ```
 
 ```{r plot-me-effects-conditions, fig.cap="Effect plot for regressing the mediators on the two conditions and their interaction"}
@@ -1005,11 +1115,12 @@ breaks <- sm_me_noI_summs %>% filter(term != "(Intercept)") %>% summarize(range 
 
 sm_me_noI_names <- data.frame(dv = names(sm_me_noI)) %>% 
   mutate(label = dv %>% str_remove("sm_me_noI_") %>% 
-           str_replace_all("empa_conc", "Empathetic concern") %>% 
-           str_replace_all("persp_tak", "Perspective taking") %>%
-           str_replace_all("me_situational_attr","Situational attribution")%>%
-           str_replace_all("me_dispos_attr", "Dispositional attribution") %>% 
-             factor(levels = c("Situational attribution", "Dispositional attribution", "Perspective taking","Empathetic concern")))
+           str_replace_all("empa_conc", "Empathy") %>% 
+           str_replace_all("persp_tak", "PerspTak") %>%
+           str_replace_all("me_situational_attr","SitAttr")%>%
+           str_replace_all("me_dispos_attr", "DispAttr") %>% 
+           str_replace_all("sub_effort_1", "SubjMob") %>% 
+             factor(levels = c("SubjMob", "SitAttr", "DispAttr", "PerspTak","Empathy")))
 ```
 
 ```{r plot-me-effects-conditions-without-interaction, fig.cap="Effect plot for regressing mediators on the two conditions (without interaction)"}
@@ -1064,11 +1175,12 @@ dm_me_summs$dv <- lapply(names(dm_me), function(n) rep(n, length(coef(dm_me$dm_m
 
 dm_me_names <- data.frame(dv = names(dm_me)) %>% 
   mutate(label = dv %>% str_remove("dm_me_") %>% 
-           str_replace_all("empa_conc", "Empathetic concern") %>% 
-           str_replace_all("persp_tak", "Perspective taking") %>%
-           str_replace_all("me_situational_attr","Situational attribution")%>%
-           str_replace_all("me_dispos_attr", "Dispositional attribution") %>%
-           factor(levels = c("Situational attribution", "Dispositional attribution", "Perspective taking","Empathetic concern")))
+           str_replace_all("empa_conc", "Empathy") %>% 
+           str_replace_all("persp_tak", "PerspTak") %>%
+           str_replace_all("me_situational_attr","SitAttr")%>%
+           str_replace_all("me_dispos_attr", "DispAttr") %>%
+           str_replace_all("sub_effort_1", "SubjMob") %>%
+           factor(levels = c("SitAttr", "DispAttr", "PerspTak","Empathy","SubjMob")))
 ```
 
 ```{r plot-effects-me-dem-two-conditions-controlling-for-demographics, fig.cap="Effect plot for regressing mediators on the two conditions and their interaction adjusted for demographics variables"}
@@ -1111,7 +1223,7 @@ stargazer(dm_me, table.placement = "H", digits = 2,
           align = T, 
           single.row = F, 
           intercept.bottom = F,
-          dep.var.caption = "Dependent variables: Support for welfare policies",
+          dep.var.caption = "Dependent variables:",
           column.sep.width = "-5pt", 
           dep.var.labels = as.character(dm_me_names$label),  
           header = F,
@@ -1134,11 +1246,12 @@ dm_me_noI_summs$dv <- lapply(names(dm_me_noI), function(n) rep(n, length(coef(dm
 
 dm_me_noI_names <- data.frame(dv = names(dm_me_noI)) %>% 
   mutate(label = dv %>% str_remove("dm_me_noI_") %>% 
-           str_replace_all("empa_conc", "Empathetic concern") %>% 
-           str_replace_all("persp_tak", "Perspective taking") %>%
-           str_replace_all("me_situational_attr","Situational attribution")%>%
-           str_replace_all("me_dispos_attr", "Dispositional attribution") %>%
-           factor(levels = c("Situational attribution", "Dispositional attribution", "Perspective taking","Empathetic concern")))
+           str_replace_all("empa_conc", "Empathy") %>% 
+           str_replace_all("persp_tak", "PerspTak") %>%
+           str_replace_all("me_situational_attr","SitAttr")%>%
+           str_replace_all("me_dispos_attr", "DispAttr") %>%
+           str_replace_all("sub_effort_1", "SubjMob") %>%
+           factor(levels = c("SitAttr", "DispAttr", "PerspTak","Empathy","SubjMob")))
 ```
 
 ```{r plot-effects-me-dem-noI-two-conditions-controlling-for-demographics, fig.cap="Effect plot for the two conditions (without interaction) adjusted for demographics"}
@@ -1184,7 +1297,7 @@ stargazer(dm_me_noI, table.placement = "H", digits = 2,
           intercept.bottom = F,
           dep.var.caption = "Dependent variables:",
           column.sep.width = "-5pt", 
-          dep.var.labels = as.character(dm_me_names$label),  
+          #dep.var.labels = as.character(dm_me_names$label),  
           header = F,
           label = "tab:dem-me-noI-welfare-stargazer",
           title = "Regression table for mediators on conditions (without interaction) adjusted for demographics ")
@@ -1328,7 +1441,7 @@ get_summ_mediation <- function(mediation_pck_mod){
 
 
 
-moderate_mediation_pck <- tibble()
+mm_pck <- tibble()
 for(i in 1:length(composite_dvs)){
   for(j in 1:length(composite_mes)){
   
@@ -1351,20 +1464,21 @@ for(i in 1:length(composite_dvs)){
   summ_high <- get_summ_mediation(mm_high) %>%
     mutate(dv=composite_dvs[i],mediator=composite_mes[j],mod_lvl="high")
   
-  moderate_mediation_pck <- bind_rows(moderate_mediation_pck, summ_low) %>% bind_rows(summ_high)
+  mm_pck <- bind_rows(mm_pck, summ_low) %>% bind_rows(summ_high)
   }
 }
 
-moderate_mediation_pck <- moderate_mediation_pck %>%
-  mutate(mediator = factor(mediator, levels = composite_mes),
-    label  = dv %>%  str_replace_all("dv_gen_welfare", "General") %>% 
-                           str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
-                           str_replace_all("dv_spec_insurance", "Insurance") %>% 
-                           str_replace_all("dv_welfare_poor", "For poor") %>% 
-                           str_replace_all("dv_welfare_hard", "For hard-working") %>% 
-                           str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
-                           str_replace_all("dv_mobility_preschool", "Preschool") %>% 
-           factor(levels = c("General", "Food stamps", "Insurance", "For poor", "For hard-working", "Higher ed.", "Preschool")[7:1]))
+mm_pck <- mm_pck %>%
+  mutate(mediator = factor(mediator, levels = composite_mes), 
+         dv = factor(dv, levels = composite_dvs[length(composite_dvs):1]))
+    # label  = dv %>%  str_replace_all("dv_gen_welfare", "General") %>% 
+    #                        str_replace_all("dv_spec_foodstamps", "Food stamps") %>% 
+    #                        str_replace_all("dv_spec_insurance", "Insurance") %>% 
+    #                        str_replace_all("dv_welfare_poor", "For poor") %>% 
+    #                        str_replace_all("dv_welfare_hard", "For hard-working") %>% 
+    #                        str_replace_all("dv_mobility_highered", "Higher ed.") %>% 
+    #                        str_replace_all("dv_mobility_preschool", "Preschool") %>% 
+           
 
 
 ```
@@ -1396,19 +1510,20 @@ get_summ_mediation(mm)
 
 
 ```{r plot-effects-mediation-low, fig.cap="Direct, indirect, and total effects in the low mobility condition with \\% explained by mediator"}
-p_low_mob_effects <- moderate_mediation_pck %>% 
+p_low_mob_effects <- mm_pck %>% 
   filter(term !="pvalue", term!="p_mediated",mod_lvl =="low") %>% 
-  ggplot(aes(x=estimate, xmin=CI_lower,xmax=CI_upper, y=label, color=term, height=0.12)) + 
+  ggplot(aes(x=estimate, xmin=CI_lower,xmax=CI_upper, y=dv, color=term, height=0.12)) + 
   geom_point(size=1.2) + 
   geom_vline(xintercept = 0, lty = 4) +
-  geom_text(aes(x=26,y=label,label=estimate), 
-            data=filter(moderate_mediation_pck,term=="p_mediated", mod_lvl =="low") %>% 
+  geom_text(aes(x=26,y=dv,label=estimate), 
+            data=filter(mm_pck,term=="p_mediated", mod_lvl =="low") %>% 
               mutate(estimate = paste0(round(100*estimate, 1), "%")), 
             inherit.aes = F, size = 2.3,nudge_y = .15) +
   geom_errorbarh(alpha =0.5)+
   facet_grid(~ mediator, 
-             labeller = as_labeller(c("empa_conc"="Empathetic\nconcern", 
-                                      "persp_tak"="Perspective\ntaking", "me_dispos_attr"="Dispositional\nattribution", "me_situational_attr"="Situational\nattribution"))) + 
+             labeller = as_labeller(c("empa_conc"="Empathetic\nconcern",
+                                      "persp_tak"="Perspective\ntaking", "me_dispos_attr"="Dispositional\nattribution", "sub_effort_1"="Subjective\nMobility", "me_situational_attr"="Situational\nattribution"))
+             ) + 
   labs(x = "Estimate with 95% confidence interval", y="Dependent variables",color="Effect", 
        subtitle = "Effects in the low mobility condition") + 
   theme(legend.position = "bottom") 
@@ -1419,19 +1534,20 @@ p_low_mob_effects
 
 
 ```{r plot-effects-mediation-high, fig.cap="Direct, indirect, and total effects in the high mobility condition with \\% explained by mediator"}
-p_high_mob_effects <- moderate_mediation_pck %>% 
+p_high_mob_effects <- mm_pck %>% 
   filter(term !="pvalue", term!="p_mediated",mod_lvl =="high") %>% 
-  ggplot(aes(x=estimate, xmin=CI_lower,xmax=CI_upper, y=label, color=term, height=0.12)) + 
+  ggplot(aes(x=estimate, xmin=CI_lower,xmax=CI_upper, y=dv, color=term, height=0.12)) + 
   geom_point(size=1.2) + 
   geom_vline(xintercept = 0, lty = 4) +
-  geom_text(aes(x=16,y=label,label=estimate), 
-            data=filter(moderate_mediation_pck,term=="p_mediated", mod_lvl =="high") %>% 
+  geom_text(aes(x=16,y=dv,label=estimate), 
+            data=filter(mm_pck,term=="p_mediated", mod_lvl =="high") %>% 
               mutate(estimate = paste0(round(100*estimate, 1), "%")), 
             inherit.aes = F, size = 2.3,nudge_y = .15) +
   geom_errorbarh(alpha =0.5)+
   facet_grid(~ mediator, 
              labeller = as_labeller(c("empa_conc"="Empathetic\nconcern", 
-                                      "persp_tak"="Perspective\ntaking", "me_dispos_attr"="Dispositional\nattribution", "me_situational_attr"="Situational\nattribution"))) + 
+                                      "persp_tak"="Perspective\ntaking", "me_dispos_attr"="Dispositional\nattribution","sub_effort_1"="Subjective\nMobility", "me_situational_attr"="Situational\nattribution"))
+             ) + 
   labs(x = "Estimate with 95% confidence interval", y="Dependent variables",color="Effect", 
        subtitle = "Effects in the high mobility condition") + 
   theme(legend.position = "bottom") + 
@@ -1480,12 +1596,12 @@ summary(s2)
 ```{r}
 mo_hi <- df %>% 
   mutate(mobility_condition = factor(mobility_condition, levels = c("high","low"))) %>% 
-  lm(dv_gen_welfare ~ empathy_condition * mobility_condition, .)
+  lm(GenWelfSupp ~ empathy_condition * mobility_condition, .)
 
 
 mo_lo <- df %>% 
   mutate(mobility_condition = factor(mobility_condition, levels = c("low","high"))) %>% 
-  lm(dv_gen_welfare ~ empathy_condition * mobility_condition, .)
+  lm(GenWelfSupp ~ empathy_condition * mobility_condition, .)
 
 
 
@@ -1529,9 +1645,9 @@ interaction.plot(x.factor = df$empathy_condition,
 ```
 
 ```{r plot-lm-means-general-welfare, fig.cap="General support for welfare policies", fig.width="45%"}
-dd <- data.frame(yhat = predict(sm$sm_dv_gen_welfare),
-                 poverty = sm$sm_dv_gen_welfare$model$empathy_condition, 
-                 mobility = sm$sm_dv_gen_welfare$model$mobility_condition)
+dd <- data.frame(yhat = predict(sm$sm_GenWelfSupp),
+                 poverty = sm$sm_GenWelfSupp$model$empathy_condition, 
+                 mobility = sm$sm_GenWelfSupp$model$mobility_condition)
 
 ggplot(dd, aes(x = poverty, y = yhat, group = mobility, color = mobility)) +
   geom_line() + 
@@ -1552,16 +1668,33 @@ df %>%
   labs(x = "Poverty", y="General welfare support", color= "Mobility condition")
 ```
 
+## Income
+
+```{r}
+ggplot(df, aes(income_num, GenWelfSupp, color=empathy_condition)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_grid(~ mobility_condition, 
+             labeller = as_labeller(c("high"="High mobility","low"="Low mobility"))) +
+  theme(legend.position = "bottom") + 
+  labs(color = "Empathy condition")
+```
+
+## Mobility
+
+
+
+
 ## Moderated Mediation
 
 The mediators explain the effect of exposure to poverty in the low but not in the high mobility condition. The only exception is situational attribution to poverty in the high mobility condition (fig. \@ref(fig:plot-effects-mediation-low) and fig. \@ref(fig:plot-effects-mediation-high)). 
 
 The effect of the exposure to poverty condition was mediated by ...
 
-1. __empathetic concern__ in the low mobility but not in the high mobility condition. In the low mobility condition, empathy explains at least 1/3 and at most 3/4 of the effect of poverty exposure on welfare policy support. The mediation was strongest for childhood interventions and weakest for food stamps.
+1. __empathetic concern__ in the low mobility but not in the high mobility condition. In the low mobility condition, empathy explains at least 38% and at most 73% of the effect of poverty exposure on welfare policy support. 
 2. __perspective taking__ in the low but not in the high mobility condition. Perspective taking explains less of the total effect of poverty exposure than empathetic concern.
-3. __dispositional attributions__ in the low mobility condition (from 22% to 42% explained) but exposure to poverty was only marginally mediated in the high mobility condition (from 5% to 8% explained).
-4. __situational attributions__ in the low mobility condition (from 31% to 48% explained) and even stronger in high mobility condition (from 53% to 89% explained). 
+3. __dispositional attributions__ in the low mobility condition (from 23% to 38% explained) but exposure to poverty was only marginally mediated in the high mobility condition (from 4% to 8% explained).
+4. __situational attributions__ in the low mobility condition (from 34% to 58% explained) and even stronger in high mobility condition (from 34% to 76% explained). 
 
 
 ## Unexpected results 
